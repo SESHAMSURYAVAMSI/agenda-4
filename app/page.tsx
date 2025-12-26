@@ -4,8 +4,6 @@ import { useState } from "react";
 
 const pdfs = [
   { name: "11/01/2026 Agenda", file: "/Day_4.pdf" },
-
-
 ];
 
 export default function AgendaPage() {
@@ -15,7 +13,7 @@ export default function AgendaPage() {
     <main className="min-h-screen bg-gray-100 p-4 md:p-6">
       
       <h1 className="text-2xl md:text-3xl font-bold mb-4 text-gray-800">
-       AOICON 2026
+        AOICON 2026
       </h1>
 
       {/* Buttons */}
@@ -36,23 +34,24 @@ export default function AgendaPage() {
         ))}
       </div>
 
-      {/* PDF iframe */}
+      {/* PDF Viewer (VIEW FIRST – mandatory) */}
       <div className="bg-white rounded-md shadow overflow-hidden">
         <iframe
-          src={activePdf}
+          src={`${activePdf}#toolbar=1&navpanes=1`}
           title="Agenda PDF"
           className="w-full h-[80vh]"
         />
       </div>
 
-      {/* Download */}
+      {/* Optional Download / Open */}
       <div className="mt-3 text-right">
         <a
           href={activePdf}
-          download
+          target="_blank"
+          rel="noopener noreferrer"
           className="text-blue-600 font-medium hover:underline"
         >
-          Download PDF
+          Open / Download PDF
         </a>
       </div>
 
